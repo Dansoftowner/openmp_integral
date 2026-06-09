@@ -27,6 +27,11 @@ long double gauss2d_transformed(double u, double v) {
 }
 
 int main(int argc, char** argv) {
+    if (argc < 3) {
+        printf("Használat: %s <N> <M>\n", argv[0]);
+        return 1;
+    }
+
     int N = atoi(argv[1]);
     int M = atoi(argv[2]);
 
