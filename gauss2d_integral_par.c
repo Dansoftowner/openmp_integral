@@ -33,8 +33,8 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    int N = atoi(argv[1]);
-    int M = atoi(argv[2]);
+    long long N = atoll(argv[1]);
+    long long M = atoll(argv[2]);
 
     const long double a = -M_PI_2l;
     const long double b = M_PI_2l;
@@ -49,8 +49,8 @@ int main(int argc, char** argv) {
     long double sum = 0.0;
 
     #pragma omp parallel for collapse(2) reduction(+:sum)
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
+    for (long long i = 0; i < N; i++) {
+        for (long long j = 0; j < M; j++) {
             long double x = a + (i + 0.5) * dx;
             long double y = c + (j + 0.5) * dy;
             sum += gauss2d_transformed(x, y);
